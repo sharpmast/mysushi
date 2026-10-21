@@ -1,0 +1,15 @@
+.tabs__navigation {
+  display: flex;
+}
+.tabs__title {
+  border: 1px solid #eee;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+.tabs__title.--tab-active {
+  border: 1px solid #000;
+}
+.tabs__content {
+  border: 1px solid #eee;
+  padding: 10px 15px;
+}

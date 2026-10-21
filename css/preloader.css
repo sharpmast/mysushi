@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/* Головний блок */
+.fls-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #101214;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.65s ease, visibility 0.65s ease;
+}
+.fls-preloader__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fls-preloader__logo {
+  display: block;
+  width: clamp(110px, 18vw, 160px);
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  opacity: 0;
+  transform: scale(0.88);
+  animation: logo-reveal 1.1s ease forwards, logo-breathe 2.8s ease-in-out 1.1s infinite;
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.08));
+  will-change: transform, opacity;
+}
+
+@keyframes logo-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes logo-breathe {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.05));
+  }
+  50% {
+    transform: scale(1.045);
+    filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.14));
+  }
+}
+html[data-fls-preloader-loaded] .fls-preloader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fls-preloader__logo {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .fls-preloader {
+    transition: none;
+  }
+}
