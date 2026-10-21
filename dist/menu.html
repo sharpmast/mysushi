@@ -1,0 +1,1106 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<style data-fls-preloader="false" rel="preload">
+			body>*:not(.fls-preloader) {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    [data-fls-preloader-loaded] body>*:not(.fls-preloader) {
+        transition: opacity 0.5s ease 0s;
+        opacity: 1;
+        visibility: visible;
+    }
+		</style>
+		<!--
+<div class="fls-preloader">
+<div class="fls-preloader__body">
+<div class="fls-preloader__counter">0%</div>
+<div class="fls-preloader__line"><span></span></div>
+</div>
+</div>
+-->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="color-scheme" content="light">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+		<link rel="shortcut icon" href="./assets/img/favicon.svg">
+		<title>Суші меню</title>
+		<script type="module" crossorigin="" src="./js/menu.min.js?v=1792585949706"></script>
+		<link rel="modulepreload" crossorigin="" href="./js/app.min.js?v=1792585949706">
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1792585949706">
+		<link rel="stylesheet" crossorigin="" href="./css/menu.min.css?v=1792585949706">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header data-fls-header-scroll="" data-fls-header-scroll-show="" class="header">
+				<div class="header__container">
+					<a href="index.html" class="header__logo">
+						<div class="header__logo-img __img">
+							<picture>
+								<source media="(max-width: 600px)" srcset="./assets/img/sushi-logo-600.webp" type="image/webp">
+								<source media="(max-width: 1200px)" srcset="./assets/img/sushi-logo-1200.webp" type="image/webp">
+								<img alt="Image" src="./assets/img/sushi-logo.webp">
+							</picture>
+						</div>
+					</a>
+					<nav class="header__menu menu">
+						<ul class="header__list menu__list">
+							<li>
+								<a class="menu__link" href="index.html">Головна</a>
+							</li>
+							<li>
+								<a class="menu__link" href="menu.html">Меню</a>
+							</li>
+							<li>
+								<a class="menu__link" href="index.html#about">Про Нас</a>
+							</li>
+							<li>
+								<a class="menu__link" href="index.html#galery">Галерея</a>
+							</li>
+							<li>
+								<a class="menu__link" href="#contacts">Контакти</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="header__buttons">
+						<a href="tel:+380936004875" class="header__btn header__btn-phone --icon-phone">
+							<span>+38 (050) 12 34
+                    567</span>
+						</a>
+						<button class="header__btn header__btn-cart cart-action --icon-cart">
+							<span data-fls-addtocart="" class="cart-counter"></span>
+						</button>
+						<button data-fls-dynamic=".menu, 525" data-fls-popup-link="popup" class="header__button-action">Замовити</button>
+					</div>
+					<div class="menu__icon">
+						<span></span>
+					</div>
+				</div>
+			</header>
+			<div class="cart">
+				<div class="cart__overlay cart-action"></div>
+				<div class="cart__body">
+					<div class="cart__top">
+						<div class="cart__title">Кошик</div>
+						<button class="cart__btn cart-action"></button>
+					</div>
+					<div class="cart__items">
+						<span class="cart__void">Кошик порожній</span>
+						<template id="cart-item-template">
+							<div class="cart__item">
+								<div class="cart__item-img __img">
+									<img src="" alt="">
+								</div>
+								<div class="cart__item-text">
+									<div class="cart__item-title"></div>
+									<div class="cart__item-price">
+										<span data-fls-cart-price=""></span>
+										<span>грн.</span>
+									</div>
+								</div>
+								<div class="cart__item-buttons">
+									<div data-fls-quantity="" class="cart__quantity">
+										<button data-fls-quantity-minus="" type="button" class="cart__quantity-btn"></button>
+										<div class="cart__quantity-input">
+											<input data-fls-addtocart-quantity="" data-fls-quantity-value="" autocomplete="off" type="text" name="form[]" value="1">
+										</div>
+										<button data-fls-quantity-plus="" type="button" class="cart__quantity-btn cart__quantity-btn--plus"></button>
+									</div>
+									<button type="button" class="cart__remove">×</button>
+								</div>
+							</div>
+						</template>
+					</div>
+					<div class="cart__footer">
+						<div class="cart__total">
+							<span>Разом</span>
+							<span data-fls-cart-total="">0</span>
+							<span>грн.</span>
+						</div>
+						<div class="cart__button">
+							<button class="cart__action-btn btn--yellow">Оформити замовлення</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<main class="page-menu">
+				<section class="hero">
+					<div class="bg-img __img">
+						<picture>
+							<source media="(max-width: 600px)" srcset="./assets/img/set-600.webp" type="image/webp">
+							<source media="(max-width: 1200px)" srcset="./assets/img/set-1200.webp" type="image/webp">
+							<img alt="Image" src="./assets/img/set.webp">
+						</picture>
+					</div>
+					<div class="hero__container">
+						<div class="hero__text">
+							<div class="hero__label">
+								<span class="hero__yellow">Твої улюблені смаки в одному меню</span>
+							</div>
+							<h1 class="hero__title">
+								Смак, у який закохуєшся
+								<span class="hero__yellow">з першого шматочка</span>
+							</h1>
+							<div class="hero__caption">
+								<p>
+									Відкрий для себе світ японської кухні: від улюблених ролів і ніжних суші до освіжаючих напоїв та
+                        смачних десертів. Ми поєднуємо свіжі інгредієнти, гармонійні смаки та красиву подачу, щоб кожне
+                        замовлення приносило задоволення.
+								</p>
+							</div>
+						</div>
+						<div class="button-down">
+							<a href="#products" class="--icon-mouse"></a>
+						</div>
+					</div>
+				</section>
+				<section data-fls-tabs="" id="products" class="products">
+					<div class="products__container">
+						<aside class="products__aside">
+							<div data-fls-spollers="768" class="products__filter filter">
+								<details class="filter__body">
+									<summary class="filter__title">Категорії</summary>
+									<div data-fls-tabs-titles="" class="filter__buttons">
+										<button data-fls-watcher="" class="filter__btn --icon-sushi --tab-active">
+											<span>Роли</span>
+											<span data-fls-digcounter="">24</span>
+										</button>
+										<button data-fls-watcher="" class="filter__btn --icon-set">
+											<span>Сети</span>
+											<span data-fls-digcounter="">8</span>
+										</button>
+										<button data-fls-watcher="" class="filter__btn --icon-sushi">
+											<span>Суші</span>
+											<span data-fls-digcounter="">7</span>
+										</button>
+										<button data-fls-watcher="" class="filter__btn --icon-soup">
+											<span>Гарячі страви</span>
+											<span data-fls-digcounter="">7</span>
+										</button>
+										<button data-fls-watcher="" class="filter__btn --icon-salad">
+											<span>Салати</span>
+											<span data-fls-digcounter="">11</span>
+										</button>
+										<button data-fls-watcher="" class="filter__btn --icon-drink">
+											<span>Напої</span>
+											<span data-fls-digcounter="">14</span>
+										</button>
+										<button data-fls-watcher="" class="filter__btn --icon-cake">
+											<span>Десерти</span>
+											<span data-fls-digcounter="">10</span>
+										</button>
+									</div>
+								</details>
+							</div>
+							<div class="products__aside-set-day set-day">
+								<div class="set-day__img">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/sus3-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/sus3-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/sus3.webp">
+									</picture>
+								</div>
+								<div class="set-day__text">
+									<div class="set-day__title">Сет дня</div>
+									<div class="set-day__caption">Вигідна пропозиція на улюбленні роли</div>
+									<a href="" class="set-day__btn --icon-redo-arrow">Детальніше</a>
+								</div>
+							</div>
+						</aside>
+						<div class="products__body">
+							<div class="products__label label">Меню</div>
+							<div class="products__top">
+								<h1 class="products__title title">Популярні категорії</h1>
+								<a href="#" class="products__link --icon-redo-arrow">Всі категорії</a>
+							</div>
+							<div data-fls-tabs-body="" class="product__cards-body">
+								<div class="products__cards --tab-show">
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/nigiri-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/nigiri-1200.webp" type="image/webp">
+													<img alt="Image" src="./assets/img/nigiri.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Філадельфія класична</a>
+											<div class="products__card-caption">Лосось, вершковий сир, огірок</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">230г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">289</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/hero1-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/hero1-1200.webp" type="image/webp">
+													<img alt="Image" src="./assets/img/hero1.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Філадельфія класична</a>
+											<div class="products__card-caption">Лосось, вершковий сир, огірок</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">230г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">289</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/set-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/set-1200.webp" type="image/webp">
+													<img alt="Image" src="./assets/img/set.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Філадельфія класична</a>
+											<div class="products__card-caption">Лосось, вершковий сир, огірок</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">230г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">289</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/sus2-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/sus2-1200.webp" type="image/webp">
+													<img alt="Image" src="./assets/img/sus2.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Філадельфія класична</a>
+											<div class="products__card-caption">Лосось, вершковий сир, огірок</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">230г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">289</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/sus1-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/sus1-1200.webp" type="image/webp">
+													<img alt="Image" src="./assets/img/sus1.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Філадельфія класична</a>
+											<div class="products__card-caption">Лосось, вершковий сир, огірок</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">230г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">289</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/moti-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/moti-1200.webp" type="image/webp">
+													<img alt="Image" src="./assets/img/moti.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Філадельфія класична</a>
+											<div class="products__card-caption">Лосось, вершковий сир, огірок</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">230г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">289</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/set/set1-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/set/set1-1200.webp" type="image/webp">
+													<img alt="Image" src="./assets/img/set/set1.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Філадельфія класична</a>
+											<div class="products__card-caption">Лосось, вершковий сир, огірок</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">230г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">289</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/sus3-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/sus3-1200.webp" type="image/webp">
+													<img alt="Image" src="./assets/img/sus3.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Філадельфія класична</a>
+											<div class="products__card-caption">Лосось, вершковий сир, огірок</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">230г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">289</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/sus2-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/sus2-1200.webp" type="image/webp">
+													<img alt="Image" src="./assets/img/sus2.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Філадельфія класична</a>
+											<div class="products__card-caption">Лосось, вершковий сир, огірок</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">230г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">289</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+								</div>
+								<div class="products__cards">
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/set/set1-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/set/set1-1200.webp" type="image/webp">
+													<img alt="Image" src="./assets/img/set/set1.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Сет «Філадельфія мікс</a>
+											<div class="products__card-caption">Лосось, вершковий сир, огірок, авокадо, рис, норі</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">800г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">749</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/set/set2-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/set/set2-1200.webp" type="image/webp">
+													<img alt="Image" src="./assets/img/set/set2.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Сет «Самурай»</a>
+											<div class="products__card-caption">
+												Каліфорнія з лососем, запечений рол, макі з огірком,
+                                    нігірі з лососем
+											</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">900г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">829</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/set/set3-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/set/set3-1200.webp" type="image/webp">
+													<img alt="Image" src="./assets/img/set/set3.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Сет «Дует»</a>
+											<div class="products__card-caption">
+												Філадельфія класична, Каліфорнія з лососем, рол з
+                                    огірком
+											</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">600г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">569</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<img src="./assets/img/set/set4.jfif" alt="Image">
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Сет «Запечений»</a>
+											<div class="products__card-caption">
+												Запечені роли з лососем, креветкою та вершковим
+                                    сиром, соус унагі
+											</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">660г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">879</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<img src="./assets/img/set/set5.jfif" alt="Image">
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Сет «Для компанії»</a>
+											<div class="products__card-caption">
+												Різноманітні роли з лососем, креветкою, огірком,
+                                    авокадо та вершковим сиром
+											</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">1200г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">999</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<img src="./assets/img/set/set6.jfif" alt="Image">
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Сет «Міні»</a>
+											<div class="products__card-caption">Макі з огірком, макі з лососем, нігірі з лососем</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">400г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">459</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart"></button>
+										</div>
+									</div>
+								</div>
+								<div class="products__cards">
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/nigiri-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/nigiri-1200.webp" type="image/webp">
+													<img alt="Нігірі з лососем" src="./assets/img/nigiri.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Нігірі з лососем</a>
+											<div class="products__card-caption">Рис, свіжий лосось, легкий соєвий акцент</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">120 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">189</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Нігірі з лососем до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/hero1-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/hero1-1200.webp" type="image/webp">
+													<img alt="Філадельфія класична" src="./assets/img/hero1.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Філадельфія класична</a>
+											<div class="products__card-caption">Лосось, вершковий сир, огірок, рис, норі</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">230 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">289</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Філадельфія класична до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/sus2-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/sus2-1200.webp" type="image/webp">
+													<img alt="Каліфорнія з лососем" src="./assets/img/sus2.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Каліфорнія з лососем</a>
+											<div class="products__card-caption">Лосось, авокадо, огірок, ікра масаго</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">250 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">319</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Каліфорнія з лососем до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/sus1-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/sus1-1200.webp" type="image/webp">
+													<img alt="Макі з огірком" src="./assets/img/sus1.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Макі з огірком</a>
+											<div class="products__card-caption">Рис, свіжий огірок, норі, кунжут</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">180 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">149</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Макі з огірком до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/set/set1-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/set/set1-1200.webp" type="image/webp">
+													<img alt="Рол з креветкою" src="./assets/img/set/set1.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Рол з креветкою</a>
+											<div class="products__card-caption">Креветка, вершковий сир, огірок, рис</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">240 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">299</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Рол з креветкою до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/sus3-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/sus3-1200.webp" type="image/webp">
+													<img alt="Філадельфія з авокадо" src="./assets/img/sus3.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Філадельфія з авокадо</a>
+											<div class="products__card-caption">Лосось, вершковий сир, авокадо, рис, норі</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">250 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">309</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Філадельфія з авокадо до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/sus2-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/sus2-1200.webp" type="image/webp">
+													<img alt="Рол з тунцем" src="./assets/img/sus2.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Рол з тунцем</a>
+											<div class="products__card-caption">Тунець, огірок, рис, норі, соус спайсі</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">230 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">279</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Рол з тунцем до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/hero1-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/hero1-1200.webp" type="image/webp">
+													<img alt="Запечений рол" src="./assets/img/hero1.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Запечений рол</a>
+											<div class="products__card-caption">Лосось, вершковий сир, сирний соус, унагі</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">260 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">329</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Запечений рол до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<picture>
+													<source media="(max-width: 600px)" srcset="./assets/img/sus1-600.webp" type="image/webp">
+													<source media="(max-width: 1200px)" srcset="./assets/img/sus1-1200.webp" type="image/webp">
+													<img alt="Дракон з вугрем" src="./assets/img/sus1.webp">
+												</picture>
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Дракон з вугрем</a>
+											<div class="products__card-caption">Вугор, авокадо, вершковий сир, соус унагі</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">270 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">359</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Дракон з вугрем до кошика"></button>
+										</div>
+									</div>
+								</div>
+								<div class="products__cards">
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<img src="./assets/img/hot/hot1.jfif" alt="Нігірі з лососем">
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Курка теріякі</a>
+											<div class="products__card-caption">Куряче філе в соусі теріякі з кунжутом.</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">250 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">189</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Нігірі з лососем до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<img src="./assets/img/hot/hot2.jfif" alt="Філадельфія класична">
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Креветки темпура</a>
+											<div class="products__card-caption">Хрусткі креветки в легкому клярі.</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">200 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">229</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Філадельфія класична до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<img src="./assets/img/hot/hot3.jfif" alt="Каліфорнія з лососем">
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Курка кацу</a>
+											<div class="products__card-caption">Хрустка курка з паніруванням і соусом.</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">300 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">199</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Каліфорнія з лососем до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<img src="./assets/img/hot/hot4.jfif" alt="Макі з огірком">
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Локшина з куркою</a>
+											<div class="products__card-caption">Локшина вок із куркою та овочами.</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">350 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">179</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Макі з огірком до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<img src="./assets/img/hot/hot5.jfif" alt="Рол з креветкою">
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Рис із куркою</a>
+											<div class="products__card-caption">Смажений рис із яйцем та овочами.</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">300 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">199</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Рол з креветкою до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<img src="./assets/img/hot/hot6.jfif" alt="Філадельфія з авокадо">
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Гьодза</a>
+											<div class="products__card-caption">Соковиті японські пельмені з підсмаженою скоринкою.</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">200 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">159</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Філадельфія з авокадо до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<img src="./assets/img/hot/hot8.jfif" alt="Рол з тунцем">
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Рамен</a>
+											<div class="products__card-caption">Ароматний бульйон, локшина, яйце та м'ясо.</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">450 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">279</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Рол з тунцем до кошика"></button>
+										</div>
+									</div>
+									<div class="products__card">
+										<div class="products__card-img __img">
+											<a href="#">
+												<img src="./assets/img/hot/hot9.jfif" alt="Запечений рол">
+											</a>
+										</div>
+										<div class="products__card-text">
+											<a href="" class="products__card-title">Такоякі</a>
+											<div class="products__card-caption">Японські кульки з восьминогом і соусом.</div>
+										</div>
+										<div class="products__card-footer">
+											<div class="products__card-price">
+												<div class="products__card-weight">280 г</div>
+												<div data-fls-watcher="" class="products__card-counter">
+													<span data-fls-digcounter="">289</span>
+													<span>грн.</span>
+												</div>
+											</div>
+											<button class="products__card-button --icon-cart" aria-label="Додати Запечений рол до кошика"></button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="choose">
+					<div class="choose__container">
+						<div class="choose__text">
+							<div class="choose__label label">Не знаєте що обрати</div>
+							<h2 class="choose__title title">Підберемо ідеальний сет для вас</h2>
+							<div class="choose__caption">
+								<p>Залиште заявку і менеджер допоможе підібрати ідеальний сет для вас</p>
+							</div>
+							<div class="choose__buttons">
+								<button data-fls-popup-link="popup" class="choose__btn --icon-redo-arrow">Залишити заявку</button>
+							</div>
+						</div>
+						<div class="choose__img">
+							<picture>
+								<source media="(max-width: 600px)" srcset="./assets/img/sus2-600.webp" type="image/webp">
+								<source media="(max-width: 1200px)" srcset="./assets/img/sus2-1200.webp" type="image/webp">
+								<img alt="Image" src="./assets/img/sus2.webp">
+							</picture>
+							<picture>
+								<source media="(max-width: 600px)" srcset="./assets/img/sus1-600.webp" type="image/webp">
+								<source media="(max-width: 1200px)" srcset="./assets/img/sus1-1200.webp" type="image/webp">
+								<img alt="Image" src="./assets/img/sus1.webp">
+							</picture>
+							<picture>
+								<source media="(max-width: 600px)" srcset="./assets/img/sus3-600.webp" type="image/webp">
+								<source media="(max-width: 1200px)" srcset="./assets/img/sus3-1200.webp" type="image/webp">
+								<img alt="Image" src="./assets/img/sus3.webp">
+							</picture>
+							<picture>
+								<source media="(max-width: 600px)" srcset="./assets/img/set/set1-600.webp" type="image/webp">
+								<source media="(max-width: 1200px)" srcset="./assets/img/set/set1-1200.webp" type="image/webp">
+								<img alt="Image" src="./assets/img/set/set1.webp">
+							</picture>
+						</div>
+					</div>
+				</section>
+				<div data-fls-popup="popup" aria-hidden="true" class="popup">
+					<div data-fls-popup-wrapper="" class="popup__wrapper">
+						<div data-fls-popup-body="" class="popup__body">
+							<button data-fls-popup-close="" type="button" class="popup__close">
+								<img src="./assets/img/close.svg" alt="Image">
+							</button>
+							<div data-fls-popup-content="" class="popup__text">
+								<form action="#" class="popup__form">
+									<div class="popup__form-title">Напишіть нам</div>
+									<div class="popup__form-caption">Ми вам обов'язково зателефонуємо</div>
+									<label for="name" class="popup__form-label">Ваше ім'я</label>
+									<input type="text" id="name" placeholder="Ваше ім'я" class="popup__form-input">
+									<label for="phone" class="popup__form-label">Номер телефону</label>
+									<input type="text" id="phone" placeholder="Номер телефону" class="popup__form-input">
+									<label for="message" class="popup__form-label">Повідомлення</label>
+									<textarea name="text" placeholder="Повідомлення" id="message"></textarea>
+									<button type="submit" class="form__btn">Відправити</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer id="contacts" class="footer" data-fls-footer="">
+				<div class="footer__bg __img">
+					<picture>
+						<source media="(max-width: 600px)" srcset="./assets/img/set-600.webp" type="image/webp">
+						<source media="(max-width: 1200px)" srcset="./assets/img/set-1200.webp" type="image/webp">
+						<img alt="Image" src="./assets/img/set.webp">
+					</picture>
+				</div>
+				<div class="footer__container">
+					<div class="footer__logo">
+						<div class="footer__logo-img __img">
+							<picture>
+								<source media="(max-width: 600px)" srcset="./assets/img/sushi-logo-600.webp" type="image/webp">
+								<source media="(max-width: 1200px)" srcset="./assets/img/sushi-logo-1200.webp" type="image/webp">
+								<img alt="Image" src="./assets/img/sushi-logo.webp">
+							</picture>
+						</div>
+						<div class="footer__logo-title">SUSHI</div>
+						<div class="footer__logo-subtitle">Restaurant</div>
+					</div>
+					<div class="footer__links">
+						<a href="tel:+380971234567" class="footer__link --icon-phone">+38 (097) 123 45 67</a>
+						<a href="" class="footer__link --icon-location">м. Київ вул. Хрещатик 32</a>
+						<a href="" class="footer__link --icon-clock">10:00 - 22:00</a>
+						<div class="footer__icons">
+							<a href="" class="footer__icon --icon-insta"></a>
+							<a href="" class="footer__icon --icon-fb"></a>
+							<a href="" class="footer__icon --icon-telegram"></a>
+						</div>
+					</div>
+					<div class="footer__map">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.3810551156466!2d30.520735826625064!3d50.44727511007552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce56c37a8259%3A0x2afb0b226b56acea!2zMzJCLCDQstGD0LvQuNGG0Y8g0KXRgNC10YnQsNGC0LjQuiwgMzIsINCa0LjRl9CyLCAwMjAwMA!5e0!3m2!1suk!2sua!4v1792492403688!5m2!1suk!2sua" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+					</div>
+					<div class="footer__subscribe">
+						<div class="footer__subscribe-title">Підпишіться на новинки</div>
+						<div class="footer__subscribe-text">Будьте вкурсі акцій та нових страв</div>
+						<form action="#" class="footer__subscribe-form">
+							<input type="text" placeholder="Ваш email" onended="">
+							<button type="submit" class="--icon-redo-arrow"></button>
+						</form>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

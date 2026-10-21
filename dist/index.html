@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<style data-fls-preloader="false" rel="preload">
+			body>*:not(.fls-preloader) {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    [data-fls-preloader-loaded] body>*:not(.fls-preloader) {
+        transition: opacity 0.5s ease 0s;
+        opacity: 1;
+        visibility: visible;
+    }
+		</style>
+		<!--
+<div class="fls-preloader">
+<div class="fls-preloader__body">
+<div class="fls-preloader__counter">0%</div>
+<div class="fls-preloader__line"><span></span></div>
+</div>
+</div>
+-->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="color-scheme" content="light">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+		<link rel="shortcut icon" href="./assets/img/favicon.svg">
+		<title>Суші ресторан</title>
+		<script type="module" crossorigin="" src="./js/index.min.js?v=1792585949706"></script>
+		<link rel="modulepreload" crossorigin="" href="./js/app.min.js?v=1792585949706">
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1792585949706">
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1792585949706">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header data-fls-header-scroll="" data-fls-header-scroll-show="" class="header">
+				<div class="header__container">
+					<a href="index.html" class="header__logo">
+						<div class="header__logo-img __img">
+							<picture>
+								<source media="(max-width: 600px)" srcset="./assets/img/sushi-logo-600.webp" type="image/webp">
+								<source media="(max-width: 1200px)" srcset="./assets/img/sushi-logo-1200.webp" type="image/webp">
+								<img alt="Image" src="./assets/img/sushi-logo.webp">
+							</picture>
+						</div>
+					</a>
+					<nav class="header__menu menu">
+						<ul class="header__list menu__list">
+							<li>
+								<a class="menu__link" href="index.html">Головна</a>
+							</li>
+							<li>
+								<a class="menu__link" href="menu.html">Меню</a>
+							</li>
+							<li>
+								<a class="menu__link" href="index.html#about">Про Нас</a>
+							</li>
+							<li>
+								<a class="menu__link" href="index.html#galery">Галерея</a>
+							</li>
+							<li>
+								<a class="menu__link" href="#contacts">Контакти</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="header__buttons">
+						<a href="tel:+380936004875" class="header__btn header__btn-phone --icon-phone">
+							<span>+38 (050) 12 34
+                    567</span>
+						</a>
+						<button class="header__btn header__btn-cart cart-action --icon-cart">
+							<span data-fls-addtocart="" class="cart-counter"></span>
+						</button>
+						<button data-fls-dynamic=".menu, 525" data-fls-popup-link="popup" class="header__button-action">Замовити</button>
+					</div>
+					<div class="menu__icon">
+						<span></span>
+					</div>
+				</div>
+			</header>
+			<div class="cart">
+				<div class="cart__overlay cart-action"></div>
+				<div class="cart__body">
+					<div class="cart__top">
+						<div class="cart__title">Кошик</div>
+						<button class="cart__btn cart-action"></button>
+					</div>
+					<div class="cart__items">
+						<span class="cart__void">Кошик порожній</span>
+						<template id="cart-item-template">
+							<div class="cart__item">
+								<div class="cart__item-img __img">
+									<img src="" alt="">
+								</div>
+								<div class="cart__item-text">
+									<div class="cart__item-title"></div>
+									<div class="cart__item-price">
+										<span data-fls-cart-price=""></span>
+										<span>грн.</span>
+									</div>
+								</div>
+								<div class="cart__item-buttons">
+									<div data-fls-quantity="" class="cart__quantity">
+										<button data-fls-quantity-minus="" type="button" class="cart__quantity-btn"></button>
+										<div class="cart__quantity-input">
+											<input data-fls-addtocart-quantity="" data-fls-quantity-value="" autocomplete="off" type="text" name="form[]" value="1">
+										</div>
+										<button data-fls-quantity-plus="" type="button" class="cart__quantity-btn cart__quantity-btn--plus"></button>
+									</div>
+									<button type="button" class="cart__remove">×</button>
+								</div>
+							</div>
+						</template>
+					</div>
+					<div class="cart__footer">
+						<div class="cart__total">
+							<span>Разом</span>
+							<span data-fls-cart-total="">0</span>
+							<span>грн.</span>
+						</div>
+						<div class="cart__button">
+							<button class="cart__action-btn btn--yellow">Оформити замовлення</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<main class="page-home">
+				<section class="hero">
+					<div class="bg-img __img">
+						<picture>
+							<source media="(max-width: 600px)" srcset="./assets/img/hero1-600.webp" type="image/webp">
+							<source media="(max-width: 1200px)" srcset="./assets/img/hero1-1200.webp" type="image/webp">
+							<img alt="Image" src="./assets/img/hero1.webp">
+						</picture>
+					</div>
+					<div class="hero__container">
+						<div class="hero__text">
+							<div class="hero__label">
+								<span class="hero__yellow">Свіжі суші. Яскраві емоції.</span>
+							</div>
+							<h1 class="hero__title">
+								Смак, у який закохуєшся
+								<span class="hero__yellow">з першого шматочка</span>
+							</h1>
+							<div class="hero__caption">
+								<p>
+									Від класичних ролів до авторських сетів — готуємо зі свіжих інгредієнтів, щоб кожне замовлення
+                        було
+                        маленьким святом.
+								</p>
+							</div>
+							<div class="hero__buttons">
+								<a href="menu.html" class="hero__btn">
+									<span>
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/sushi-btn-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/sushi-btn-1200.webp" type="image/webp">
+											<img alt="Image" src="./assets/img/sushi-btn.webp">
+										</picture>
+									</span>
+									<span>меню</span>
+								</a>
+							</div>
+						</div>
+						<div class="hero__images">
+							<div data-fls-marquee="" data-fls-marquee-space="20" data-fls-marquee-speed="500" class="hero__images-body">
+								<div class="hero__img">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/sus1-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/sus1-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/sus1.webp">
+									</picture>
+									<div class="hero__img-text">
+										<a href="">Суші</a>
+									</div>
+								</div>
+								<div class="hero__img">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/desert-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/desert-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/desert.webp">
+									</picture>
+									<div class="hero__img-text">
+										<a href="">Десерти</a>
+									</div>
+								</div>
+								<div class="hero__img">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/juice-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/juice-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/juice.webp">
+									</picture>
+									<div class="hero__img-text">
+										<a href="">Соки</a>
+									</div>
+								</div>
+								<div class="hero__img">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/beer-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/beer-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/beer.webp">
+									</picture>
+									<div class="hero__img-text">
+										<a href="">Пиво</a>
+									</div>
+								</div>
+								<div class="hero__img">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/burger-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/burger-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/burger.webp">
+									</picture>
+									<div class="hero__img-text">
+										<a href="">Бургер</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="our-menu">
+					<div data-fls-tabs="" class="our-menu__container">
+						<div class="our-menu__label label">Наше меню</div>
+						<h2 class="our-menu__title title">Популярні категорії</h2>
+						<div data-fls-tabs-titles="" class="our-menu__top-buttons">
+							<button class="our-menu__top-btn --tab-active">Суші</button>
+							<button class="our-menu__top-btn">Соки</button>
+							<button class="our-menu__top-btn">Десерти</button>
+							<button class="our-menu__top-btn">Пиво</button>
+						</div>
+						<div data-fls-tabs-body="" class="our-menu__cards-body">
+							<div class="our-menu__cards --tab-show">
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/sus1-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/sus1-1200.webp" type="image/webp">
+											<img alt="Image" src="./assets/img/sus1.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Роли</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Класика та авторські роли</a>
+									</div>
+								</div>
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/nigiri-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/nigiri-1200.webp" type="image/webp">
+											<img alt="Image" src="./assets/img/nigiri.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Нігірі</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Традиційні японські суші</a>
+									</div>
+								</div>
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/poke-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/poke-1200.webp" type="image/webp">
+											<img alt="Image" src="./assets/img/poke.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Поке</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Свіжість у кожній мисці</a>
+									</div>
+								</div>
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/set-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/set-1200.webp" type="image/webp">
+											<img alt="Image" src="./assets/img/set.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Сети</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Ідеальний вибір для компанії</a>
+									</div>
+								</div>
+							</div>
+							<div class="our-menu__cards">
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/orange-j-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/orange-j-1200.webp" type="image/webp">
+											<img alt="Апельсиновий сік" src="./assets/img/orange-j.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Апельсиновий</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Свіжий цитрусовий смак із легкою кислинкою</a>
+									</div>
+								</div>
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/apple-j-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/apple-j-1200.webp" type="image/webp">
+											<img alt="Яблучний сік" src="./assets/img/apple-j.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Яблучний</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Натуральна солодкість стиглих яблук</a>
+									</div>
+								</div>
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/mango-j-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/mango-j-1200.webp" type="image/webp">
+											<img alt="Манговий сік" src="./assets/img/mango-j.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Манговий</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Екзотичний смак стиглого манго</a>
+									</div>
+								</div>
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/fruit-j-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/fruit-j-1200.webp" type="image/webp">
+											<img alt="Фруктовий мікс" src="./assets/img/fruit-j.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Фруктові мікси</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Яскраве поєднання улюблених фруктів</a>
+									</div>
+								</div>
+							</div>
+							<div class="our-menu__cards">
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/cheesekake-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/cheesekake-1200.webp" type="image/webp">
+											<img alt="Чізкейк" src="./assets/img/cheesekake.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Чізкейки</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Ніжні та кремові десерти</a>
+									</div>
+								</div>
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/moti-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/moti-1200.webp" type="image/webp">
+											<img alt="Моті" src="./assets/img/moti.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Моті</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Японські солодощі з ніжною начинкою</a>
+									</div>
+								</div>
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/tiramisu-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/tiramisu-1200.webp" type="image/webp">
+											<img alt="Тірамісу" src="./assets/img/tiramisu.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Тірамісу</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Кава, маскарпоне та ніжний крем</a>
+									</div>
+								</div>
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/Tiramisu-set-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/Tiramisu-set-1200.webp" type="image/webp">
+											<img alt="Асорті десертів" src="./assets/img/Tiramisu-set.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Десертні сети</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Солодке доповнення до вечора</a>
+									</div>
+								</div>
+							</div>
+							<div class="our-menu__cards">
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/beer-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/beer-1200.webp" type="image/webp">
+											<img alt="Світле пиво" src="./assets/img/beer.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Світле пиво</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Легкий смак і приємна хмелева гірчинка</a>
+									</div>
+								</div>
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/beer1-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/beer1-1200.webp" type="image/webp">
+											<img alt="Темне пиво" src="./assets/img/beer1.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Темне пиво</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Насичений смак із карамельними нотками</a>
+									</div>
+								</div>
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/beer2-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/beer2-1200.webp" type="image/webp">
+											<img alt="Крафтове пиво" src="./assets/img/beer2.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Крафтове пиво</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Незвичайні смаки та характерний аромат</a>
+									</div>
+								</div>
+								<div class="our-menu__card">
+									<a href="" class="our-menu__card-img __img">
+										<picture>
+											<source media="(max-width: 600px)" srcset="./assets/img/beer3-600.webp" type="image/webp">
+											<source media="(max-width: 1200px)" srcset="./assets/img/beer3-1200.webp" type="image/webp">
+											<img alt="Безалкогольне пиво" src="./assets/img/beer3.webp">
+										</picture>
+									</a>
+									<div class="our-menu__card-text">
+										<div class="our-menu__card-title">Безалкогольне</div>
+										<a href="" class="our-menu__card-link --icon-redo-arrow">Знайомий пивний смак без алкоголю</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="our-menu__buttons">
+							<a href="menu.html" class="hero__btn">
+								<span>
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/sushi-btn-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/sushi-btn-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/sushi-btn.webp">
+									</picture>
+								</span>
+								<span>Перейти в меню</span>
+							</a>
+						</div>
+					</div>
+				</section>
+				<div class="advantages">
+					<div class="advantages__container">
+						<div class="advantages__items">
+							<div class="advantages__item">
+								<div class="advantages__img">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/leaf-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/leaf-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/leaf.webp">
+									</picture>
+								</div>
+								<div class="advantages__text">Тільки свіжі інгридієнти</div>
+							</div>
+							<div class="advantages__item">
+								<div class="advantages__img">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/chief-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/chief-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/chief.webp">
+									</picture>
+								</div>
+								<div class="advantages__text">Досвідчені шеф-кухарі</div>
+							</div>
+							<div class="advantages__item">
+								<div class="advantages__img">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/truck-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/truck-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/truck.webp">
+									</picture>
+								</div>
+								<div class="advantages__text">Швидка доставка по всьому місту</div>
+							</div>
+							<div class="advantages__item">
+								<div class="advantages__img">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/love-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/love-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/love.webp">
+									</picture>
+								</div>
+								<div class="advantages__text">З турботою про кожного гостя</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<section id="about" class="about">
+					<div class="about__container">
+						<div class="about__img">
+							<picture>
+								<source media="(max-width: 600px)" srcset="./assets/img/japanec-600.webp" type="image/webp">
+								<source media="(max-width: 1200px)" srcset="./assets/img/japanec-1200.webp" type="image/webp">
+								<img alt="Image" src="./assets/img/japanec.webp">
+							</picture>
+						</div>
+						<div class="about__text">
+							<div class="about__label label">Про нас</div>
+							<h1 class="about__title title">Більше ніж просто суші</h1>
+							<div data-fls-showmore="" class="about__caption">
+								<div data-fls-showmore-content="90" class="about__caption-body">
+									<div class="about__caption-item">
+										<div class="about__caption-title">Створюємо смак, який хочеться повторити</div>
+										<p data-scroll-text="">
+											Ми віримо, що смачна їжа — це більше, ніж просто втамувати голод. Це настрій, приємні
+                                емоції, теплі зустрічі та моменти, якими хочеться ділитися з близькими. Саме тому ми
+                                створили простір, де кожна страва має свій характер, кожен інгредієнт відіграє важливу
+                                роль, а кожне замовлення готується з увагою до деталей.
+										</p>
+									</div>
+									<div class="about__caption-item">
+										<div class="about__caption-title">Наша любов — японська кухня</div>
+										<p data-scroll-text="">
+											Суші та роли — це гармонія смаків, текстур і кольорів. Ми надихаємося традиціями
+                                японської кухні та водночас любимо цікаві поєднання, які відкривають нові гастрономічні
+                                враження. У нашому меню поєднуються знайома класика та оригінальні варіанти для тих, хто
+                                завжди готовий спробувати щось нове.
+                                Ми приділяємо особливу увагу якості продуктів, свіжості інгредієнтів і правильному
+                                поєднанню компонентів. Адже саме з таких деталей складається справжній смак. Рис, риба,
+                                морепродукти, овочі, соуси та інші складники повинні доповнювати один одного, створюючи
+                                цілісну й гармонійну страву.
+										</p>
+									</div>
+									<div class="about__caption-item">
+										<div class="about__caption-title">Якість у кожній деталі</div>
+										<p data-scroll-text="">
+											Для нас важливо не лише те, який вигляд має страва, а й те, які враження вона залишає
+                                після себе. Ми дбаємо про акуратність приготування, приділяємо увагу подачі та прагнемо,
+                                щоб кожен рол був не тільки апетитним на вигляд, а й приносив справжнє задоволення.
+
+                                Ми постійно працюємо над нашим меню, шукаємо цікаві смакові поєднання та прагнемо
+                                зробити вибір простим і приємним. Незалежно від того, чи ви надаєте перевагу класичним
+                                ролам, чи любите експериментувати, у нас знайдеться щось до душі.
+										</p>
+									</div>
+									<div class="about__caption-item">
+										<div class="about__caption-title">Більше, ніж просто суші</div>
+										<p data-scroll-text="">
+											Ми знаємо, що ідеальна вечеря складається з маленьких приємностей. Саме тому наше меню
+                                доповнюють освіжаючі напої, соки та ніжні десерти, які допоможуть зробити трапезу ще
+                                приємнішою. Ви можете обрати щось легке для обідньої перерви, замовити улюблені роли для
+                                вечора вдома або зібрати цілий сет для компанії друзів.
+
+                                Ми хочемо, щоб наші страви ставали частиною ваших особливих моментів: затишних вечорів,
+                                святкових зустрічей, спонтанних посиденьок і звичайних днів, які хочеться зробити трішки
+                                яскравішими.
+										</p>
+									</div>
+								</div>
+								<button hidden data-fls-showmore-button="" type="button" class="about__caption-btn">
+									<span>Читати
+                            далі</span>
+									<span>Закрити</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section id="galery" class="galery">
+					<div class="galery__container">
+						<div class="galery__label label">Галерея</div>
+						<div class="galery__top">
+							<h2 class="galery__title title">Атмосфера та страви</h2>
+							<a href="" class="galery__top-link --icon-redo-arrow">Переглянути всі фото</a>
+						</div>
+						<div class="galery__items">
+							<div class="galery__item">
+								<div class="galery__img galery__img--1">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/hero1-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/hero1-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/hero1.webp">
+									</picture>
+								</div>
+								<div class="galery__img galery__img--2">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/sus1-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/sus1-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/sus1.webp">
+									</picture>
+								</div>
+								<div class="galery__img galery__img--3">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/beer1-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/beer1-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/beer1.webp">
+									</picture>
+								</div>
+								<div class="galery__img galery__img--4">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/fruit-j-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/fruit-j-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/fruit-j.webp">
+									</picture>
+								</div>
+								<div class="galery__img galery__img--5">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/cheesekake-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/cheesekake-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/cheesekake.webp">
+									</picture>
+								</div>
+								<div class="galery__img galery__img--6">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/beer3-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/beer3-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/beer3.webp">
+									</picture>
+								</div>
+								<div class="galery__img galery__img--7">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/set-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/set-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/set.webp">
+									</picture>
+								</div>
+							</div>
+							<div class="galery__item">
+								<div class="galery__img galery__img--11">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/tiramisu-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/tiramisu-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/tiramisu.webp">
+									</picture>
+								</div>
+								<div class="galery__img galery__img--12">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/beer-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/beer-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/beer.webp">
+									</picture>
+								</div>
+								<div class="galery__img galery__img--13">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/moti-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/moti-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/moti.webp">
+									</picture>
+								</div>
+								<div class="galery__img galery__img--14">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/nigiri-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/nigiri-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/nigiri.webp">
+									</picture>
+								</div>
+								<div class="galery__img galery__img--15">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/mango-j-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/mango-j-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/mango-j.webp">
+									</picture>
+								</div>
+								<div class="galery__img galery__img--16">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/Tiramisu-set-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/Tiramisu-set-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/Tiramisu-set.webp">
+									</picture>
+								</div>
+								<div class="galery__img galery__img--17">
+									<picture>
+										<source media="(max-width: 600px)" srcset="./assets/img/apple-j-600.webp" type="image/webp">
+										<source media="(max-width: 1200px)" srcset="./assets/img/apple-j-1200.webp" type="image/webp">
+										<img alt="Image" src="./assets/img/apple-j.webp">
+									</picture>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			<footer id="contacts" class="footer" data-fls-footer="">
+				<div class="footer__bg __img">
+					<picture>
+						<source media="(max-width: 600px)" srcset="./assets/img/set-600.webp" type="image/webp">
+						<source media="(max-width: 1200px)" srcset="./assets/img/set-1200.webp" type="image/webp">
+						<img alt="Image" src="./assets/img/set.webp">
+					</picture>
+				</div>
+				<div class="footer__container">
+					<div class="footer__logo">
+						<div class="footer__logo-img __img">
+							<picture>
+								<source media="(max-width: 600px)" srcset="./assets/img/sushi-logo-600.webp" type="image/webp">
+								<source media="(max-width: 1200px)" srcset="./assets/img/sushi-logo-1200.webp" type="image/webp">
+								<img alt="Image" src="./assets/img/sushi-logo.webp">
+							</picture>
+						</div>
+						<div class="footer__logo-title">SUSHI</div>
+						<div class="footer__logo-subtitle">Restaurant</div>
+					</div>
+					<div class="footer__links">
+						<a href="tel:+380971234567" class="footer__link --icon-phone">+38 (097) 123 45 67</a>
+						<a href="" class="footer__link --icon-location">м. Київ вул. Хрещатик 32</a>
+						<a href="" class="footer__link --icon-clock">10:00 - 22:00</a>
+						<div class="footer__icons">
+							<a href="" class="footer__icon --icon-insta"></a>
+							<a href="" class="footer__icon --icon-fb"></a>
+							<a href="" class="footer__icon --icon-telegram"></a>
+						</div>
+					</div>
+					<div class="footer__map">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.3810551156466!2d30.520735826625064!3d50.44727511007552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce56c37a8259%3A0x2afb0b226b56acea!2zMzJCLCDQstGD0LvQuNGG0Y8g0KXRgNC10YnQsNGC0LjQuiwgMzIsINCa0LjRl9CyLCAwMjAwMA!5e0!3m2!1suk!2sua!4v1792492403688!5m2!1suk!2sua" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+					</div>
+					<div class="footer__subscribe">
+						<div class="footer__subscribe-title">Підпишіться на новинки</div>
+						<div class="footer__subscribe-text">Будьте вкурсі акцій та нових страв</div>
+						<form action="#" class="footer__subscribe-form">
+							<input type="text" placeholder="Ваш email" onended="">
+							<button type="submit" class="--icon-redo-arrow"></button>
+						</form>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
