@@ -30,10 +30,10 @@
 		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
 		<link rel="shortcut icon" href="./assets/img/favicon.svg">
 		<title>Суші ресторан</title>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1792585949706"></script>
-		<link rel="modulepreload" crossorigin="" href="./js/app.min.js?v=1792585949706">
-		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1792585949706">
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1792585949706">
+		<script type="module" crossorigin="" src="./js/index.min.js?v=1792597152970"></script>
+		<link rel="modulepreload" crossorigin="" href="./js/app.min.js?v=1792597152970">
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1792597152970">
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1792597152970">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -79,6 +79,28 @@
 					</div>
 					<div class="menu__icon">
 						<span></span>
+					</div>
+				</div>
+				<div data-fls-popup="popup" aria-hidden="true" class="popup">
+					<div data-fls-popup-wrapper="" class="popup__wrapper">
+						<div data-fls-popup-body="" class="popup__body">
+							<button data-fls-popup-close="" type="button" class="popup__close">
+								<img src="./assets/img/close.svg" alt="Image">
+							</button>
+							<div data-fls-popup-content="" class="popup__text">
+								<form action="#" class="popup__form">
+									<div class="popup__form-title">Напишіть нам</div>
+									<div class="popup__form-caption">Ми вам обов'язково зателефонуємо</div>
+									<label for="name" class="popup__form-label">Ваше ім'я</label>
+									<input type="text" id="name" placeholder="Ваше ім'я" class="popup__form-input">
+									<label for="phone" class="popup__form-label">Номер телефону</label>
+									<input type="text" id="phone" placeholder="Номер телефону" class="popup__form-input">
+									<label for="message" class="popup__form-label">Повідомлення</label>
+									<textarea name="text" placeholder="Повідомлення" id="message"></textarea>
+									<button type="submit" class="form__btn">Відправити</button>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
 			</header>
